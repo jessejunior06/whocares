@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WHO CARES - The Journey to Indifference</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Cinzel:wght@400;500;600;700;800;900&family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Inter', sans-serif;
+            background: #000;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .hero-section {
+            text-align: center;
+            margin-bottom: 50px;
+            max-width: 800px;
+        }
+        
+        .hero-title {
+            font-family: 'Cinzel', serif;
+            font-size: 52px;
+            color: #f5f5f5;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 700;
+            text-shadow: 1px 1px 0 #111;
+        }
+        
+        .hero-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-style: italic;
+            color: #888;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+        
+        .main-container {
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1400px;
+        }
+        
+        .shirt-display {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .shirt-mockup {
+            width: 380px;
+            height: 480px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            border-radius: 25px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .design-area {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 340px;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .gothic-text {
+            /* Use a more legible, similarly classical serif */
+            font-family: 'Cinzel', serif;
+            font-size: 44px;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 0.95;
+            text-align: center;
+            position: relative;
+            margin-bottom: 24px;
+            font-weight: 700;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+        }
+        
+        .who-text {
+            display: block;
+            margin-bottom: -8px;
+            position: relative;
+        }
+        
+        .cares-text {
+            display: block;
+            position: relative;
+        }
+        
+        /* Enhanced drip effects */
+        .cares-text::after {
+            content: '';
+            position: absolute;
+            bottom: -25px;
+            left: 25px;
+            width: 4px;
+            height: 30px;
+            background: linear-gradient(to bottom, #e0e0e0 0%, #888 50%, transparent 100%);
+            border-radius: 0 0 50% 50%;
+            animation: drip 3s ease-in-out infinite;
+        }
+        
+        .cares-text::before {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            right: 35px;
+            width: 3px;
+            height: 25px;
+            background: linear-gradient(to bottom, #e0e0e0 0%, #666 60%, transparent 100%);
+            border-radius: 0 0 50% 50%;
+            animation: drip 3s ease-in-out infinite 0.5s;
+        }
+        
+        .who-text::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: 20px;
+            width: 2px;
+            height: 18px;
+            background: linear-gradient(to bottom, #e0e0e0 0%, #777 40%, transparent 100%);
+            border-radius: 0 0 50% 50%;
+            animation: drip 3s ease-in-out infinite 1s;
+        }
+        
+        @keyframes drip {
+            0%, 100% { opacity: 0.8; transform: scaleY(1); }
+            50% { opacity: 1; transform: scaleY(1.1); }
+        }
+        
+        .commercial-section {
+            width: 320px;
+            height: 2px;
+            background: #555;
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .product-elements {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 320px;
+            margin-top: 25px;
+        }
+        
+        .qr-mock {
+            width: 55px;
+            height: 55px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ccc;
+        }
+        
+        .qr-grid {
+            width: 85%;
+            height: 85%;
+            background: 
+                repeating-linear-gradient(0deg, #000 0px, #000 3px, transparent 3px, transparent 6px),
+                repeating-linear-gradient(90deg, #000 0px, #000 3px, transparent 3px, transparent 6px);
+        }
+        
+        .brand-element {
+            width: 75px;
+            height: 35px;
+            background: #2a2a2a;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #555;
+        }
+        
+        .brand-text {
+            color: #ff6635;
+            font-size: 9px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .barcode-element {
+            width: 110px;
+            height: 35px;
+            background: repeating-linear-gradient(
+                to right,
+                #fff 0px, #fff 1px,
+                #000 1px, #000 3px,
+                #fff 3px, #fff 4px,
+                #000 4px, #000 6px,
+                #fff 6px, #fff 7px,
+                #000 7px, #000 10px,
+                #fff 10px, #fff 11px,
+                #000 11px, #000 12px,
+                #fff 12px, #fff 14px,
+                #000 14px, #000 16px
+            );
+            border: 1px solid #555;
+        }
+        
+        .narrative-panel {
+            width: 520px;
+            background: rgba(8, 8, 8, 0.95);
+            border-radius: 20px;
+            padding: 45px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            position: relative;
+        }
+        
+        .narrative-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent 0%, #666 50%, transparent 100%);
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section-title {
+            font-family: 'Cinzel', serif;
+            color: #c5c5c5;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 1px;
+            background: #555;
+        }
+        
+        .narrative-text {
+            color: #999;
+            line-height: 1.8;
+            font-size: 15px;
+            margin-bottom: 18px;
+        }
+        
+        .inner-quote {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 20px;
+            border-left: 4px solid #444;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: #bbb;
+            position: relative;
+        }
+        
+        .inner-quote::before {
+            content: '"';
+            font-size: 60px;
+            color: rgba(255, 255, 255, 0.1);
+            position: absolute;
+            top: -10px;
+            left: -5px;
+            line-height: 1;
+        }
+        
+        .realization-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .realization-item {
+            margin-bottom: 20px;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .realization-item::before {
+            content: '●';
+            position: absolute;
+            left: 0;
+            top: 15px;
+            color: #555;
+            font-size: 12px;
+        }
+        
+        .realization-text {
+            color: #aaa;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+        
+        .emphasis {
+            color: #d0d0d0;
+            font-weight: 500;
+        }
+        
+        .conclusion {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .conclusion-text {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #bbb;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        .design-note {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+            color: #444;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Placeholder image styling for swapping in your artwork */
+
+        #design {
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            box-sizing: border-box;
+            object-fit: contain;
+            border-radius: 6px;
+            border: 1px dashed rgba(255,255,255,0.06);
+            background: rgba(255,255,255,0.01);
+            margin: 0 auto;
+        }
+
+        /* Ensure the image fits inside the design-area without overflowing */
+        .design-area { overflow: hidden; }
+        /* Audio toggle base style moved from inline for responsive control */
+        #audio-toggle {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            z-index: 999;
+            background: #111;
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 10px 12px;
+            border-radius: 8px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        @media (max-width: 900px) {
+            .main-container { gap: 30px; }
+            .shirt-mockup { width: 320px; height: 440px; }
+            .design-area { width: 300px; height: 360px; }
+            .narrative-panel { width: 460px; padding: 30px; }
+            .hero-title { font-size: 44px; }
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 12px; }
+            .main-container { flex-direction: column; gap: 20px; align-items: center; }
+            .shirt-mockup { width: 280px; height: 380px; border-radius: 18px; }
+            .design-area { width: 260px; height: 300px; }
+            .narrative-panel { width: 100%; padding: 20px; box-sizing: border-box; }
+            .hero-title { font-size: 32px; }
+            .hero-subtitle { font-size: 13px; }
+            #audio-toggle { right:12px; bottom:12px; padding:8px 10px; font-size:14px; border-radius:6px; }
+            .design-note { font-size:9px; bottom:10px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background audio player: replace 'bg-music.mp3' with your audio file -->
+    <audio id="bg-audio" preload="auto">
+        <source src="sacrifice.mp3" type="audio/mpeg">
+        <!-- You can add additional sources (ogg) for broader support -->
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Floating music control -->
+    <button id="audio-toggle" aria-pressed="false" aria-label="Play background music" title="Play/Pause music">Play</button>
+
+    <script>
+        (function(){
+            const audio = document.getElementById('bg-audio');
+            const btn = document.getElementById('audio-toggle');
+
+            // Restore last state
+            const wasPlaying = localStorage.getItem('whocares_audio_playing') === '1';
+
+            function updateButton(playing){
+                btn.textContent = playing ? 'Pause' : 'Play';
+                btn.setAttribute('aria-pressed', playing ? 'true' : 'false');
+                btn.title = playing ? 'Pause music' : 'Play music';
+            }
+
+            // Try to resume if user previously enabled (will only start on user gesture in many browsers)
+            if(wasPlaying){
+                // attempt to play; browsers may block autoplay until a gesture
+                audio.play().then(()=>{
+                    updateButton(true);
+                }).catch(()=>{
+                    updateButton(false);
+                });
+            } else {
+                updateButton(false);
+            }
+
+            btn.addEventListener('click', function(){
+                if(audio.paused){
+                    audio.play().then(()=>{
+                        updateButton(true);
+                        localStorage.setItem('whocares_audio_playing','1');
+                    }).catch((e)=>{
+                        console.warn('Playback blocked:', e);
+                    });
+                } else {
+                    audio.pause();
+                    updateButton(false);
+                    localStorage.setItem('whocares_audio_playing','0');
+                }
+            });
+
+            // Pause when page is hidden to be polite
+            document.addEventListener('visibilitychange', function(){
+                if(document.hidden){
+                    if(!audio.paused){ audio.pause(); btn.dataset._wasPlaying = '1'; updateButton(false); }
+                } else {
+                    if(btn.dataset._wasPlaying === '1'){
+                        audio.play().then(()=>{ updateButton(true); delete btn.dataset._wasPlaying; }).catch(()=>{});
+                    }
+                }
+            });
+        })();
+    </script>
+    <div class="hero-section">
+        <div class="hero-title">Who Cares</div>
+        <div class="hero-subtitle">A meditation on caring, indifference, and self-preservation</div>
+    </div>
+    
+    <div class="main-container">
+        <div class="shirt-display">
+            <div class="shirt-mockup">
+                <div class="design-area">
+                    <!-- DESIGN PLACEHOLDER: replace `design.png` with your final artwork (PNG/SVG). -->
+
+                    <img id="design" src="Whocares.png" alt="Shirt design placeholder">
+                </div>
+                <div class="design-note">Gothic Indifference</div>
+            </div>
+        </div>
+        
+        <div class="narrative-panel">
+            <div class="section">
+                <div class="section-title">The Genesis</div>
+                <div class="narrative-text">
+                    <span class="emphasis">"Who cares?"</span> — this statement has been circulating in my mind for some time. It emerged from sitting down and genuinely thinking about life experiences and the reality of how we exist as humans.
+                </div>
+                <div class="narrative-text">
+                    The question isn't really a question at all. It's an observation, a conclusion reached after careful examination: <span class="emphasis">How many people really care?</span>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">The Universal Question</div>
+                <div class="narrative-text">
+                    We live in a world where everyone claims to care, yet when push comes to shove, <span class="emphasis">genuine care is scarce</span>. Social media likes, surface-level check-ins, performative empathy — but real, deep, stick-around-when-it-gets-messy care? That's rare.
+                </div>
+                <div class="narrative-text">
+                    The question becomes less about whether people should care and more about <span class="emphasis">whether caring itself is worth the energy</span> when it's so rarely reciprocated.
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">The Hard Truths</div>
+                <ul class="realization-list">
+                    <li class="realization-item">
+                        <div class="realization-text">
+                            <span class="emphasis">No one really cares about the pain others go through</span> because everyone's got their own problems. We're all drowning in our individual storms, too busy surviving to notice someone else's struggle.
+                        </div>
+                    </li>
+                    
+                    <li class="realization-item">
+                        <div class="realization-text">
+                            <span class="emphasis">People often don't value what they have</span> until it's gone. Effort goes unnoticed, investment unreturned, and eventually you realize that your energy might be better spent elsewhere.
+                        </div>
+                    </li>
+                    
+                    <li class="realization-item">
+                        <div class="realization-text">
+                            <span class="emphasis">Sometimes indifference becomes self-preservation.</span> When caring consistently leads to disappointment, the natural response is to stop caring. It's not cruelty — it's evolution.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">The Design Philosophy</div>
+                <div class="narrative-text">
+                    The Gothic blackletter isn't decorative — it's architectural. These words deserve weight, permanence, the gravity of stone tablets. The dripping effects aren't stylistic choices; they're <span class="emphasis">visual tears</span>, the slow bleed of caring too much until you're empty.
+                </div>
+                <div class="narrative-text">
+                    The commercial elements below — QR code, brand logo, barcode — transform this profound human experience into a product. Because that's what we do now: we commodify our pain, package our revelations, make our deepest truths consumable.
+                </div>
+            </div>
+            
+            <div class="conclusion">
+                <div class="conclusion-text">
+                    "Who cares?" isn't cynicism. It's clarity. It's the answer to every one-sided effort, every unreciprocated gesture, every moment of wondering if your investment matters. Sometimes the most liberating realization is that the answer might just be: no one. And maybe that's perfectly fine.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
